@@ -66,3 +66,4 @@ const getPhoto = (id) => ({
 });
 
 const getUserPhots = () => Array.from({length: 25}, ( val, ind ) => getPhoto( ind + 1 ));
+getUserPhots();
