@@ -43,7 +43,7 @@ const getRandomIntInclusive = (min, max) => {
 };
 
 //подсчет длинны строки
-const calcLengthString = (str, maxLength) => str.lenght <= maxLength;
+const calcLengthString = (str, maxLength) => str.length <= maxLength;
 calcLengthString(0, 140);
 
 const getRandomArrayElement = (elements) => elements[getRandomIntInclusive(0, elements.length - 1)];
