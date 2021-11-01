@@ -1,2 +1,3 @@
-import {getUserPhots} from './data.js';
-getUserPhots();
+import {renderingTrumbnails} from './rendering_thumbnails.js';
+
+renderingTrumbnails();
