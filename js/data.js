@@ -56,3 +56,4 @@ const getPhoto = (id) => ({
 });
 
 export const getUserPhots = () => Array.from({length: 25}, ( val, ind ) => getPhoto( ind + 1 ));
+export const data = getUserPhots();

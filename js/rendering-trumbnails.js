@@ -1,7 +1,7 @@
-import {getUserPhots} from './data.js';
+import {data} from './data.js';
 
 export const renderingTrumbnails = () => {
-  const usersPhoto = getUserPhots();
+  const usersPhoto = data;
   // Контейнер для карточек
   const pictures = document.querySelector('.pictures');
 
@@ -21,6 +21,7 @@ export const renderingTrumbnails = () => {
     const likeElm = clonedElement.querySelector('.picture__likes');
 
     img.src = value.avatar;
+    img.id = value.id;
     commentElm.textContent = value.comments.length;
     likeElm.textContent = value.likes;
 
