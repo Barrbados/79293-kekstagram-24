@@ -1,6 +1,6 @@
 import {data} from './data.js';
 
-export const fn2 = () => {
+export const openBigImage = () => {
   const socialСommentСount = document.querySelector('.social__comment-count');
   const commentsLoader = document.querySelector('.comments-loader');
   const trumbNails = document.querySelectorAll('.picture__img');
@@ -8,17 +8,42 @@ export const fn2 = () => {
   const bodyElement = document.querySelector('body');
   const bigpictureCancel = document.querySelector('.big-picture__cancel');
 
-  console.log('trumbNails', trumbNails);
+
   trumbNails.forEach((elm) => {
 
     elm.addEventListener('click', (evt) => {
       evt.preventDefault();
-      console.log('evt.target', evt.target.id);
-      const targetId = evt.target.id;
-      const dataItem = data.find((val) => `${val.id}` === targetId);
-      console.log('data', data);
 
+      const targetId = evt.target.id;
+      const dataItem = data.find((val) => `${val.id}` === targetId);//с этим мне помогли
+      const img = bigPicture.querySelector('img');
+      const likesСount = bigPicture.querySelector('.likes-count');
+      const commentsСount = bigPicture.querySelector('.comments-count');
       console.log('dataItem', dataItem);
+      //const socialPicture = bigPicture.querySelector('.social__picture');
+
+      // const dataItemComments = dataItem(comments).find((val) => `${val.id}` === targetId);
+      //?????Список комментариев под фотографией: комментарии должны вставляться в блок .social__comments
+      //  <li class="social__comment">
+      //     <img
+      //         class="social__picture"
+      //         src="{{аватар}}"
+      //         alt="{{имя комментатора}}"
+      //         width="35" height="35">
+      //     <p class="social__text">{{текст комментария}}</p>
+      //  </li>
+      //const socialComments = bigPicture.querySelector('.social__comments');
+
+      //Описание фотографии description вставьте строкой в блок .social__caption
+      const socialCaption = bigPicture.querySelector('.social__caption');
+
+      img.src = dataItem.avatar;
+      likesСount.textContent = dataItem.likes;
+      commentsСount.textContent = dataItem.comments.length;
+      //socialComments.value = dataItem.comments.length;
+      socialCaption.textContent = dataItem.description;
+
+
       bigPicture.classList.remove('hidden');
 
       socialСommentСount.classList.add('hidden');
@@ -31,6 +56,7 @@ export const fn2 = () => {
         socialСommentСount.classList.remove('hidden');
         commentsLoader.classList.remove('hidden');
         bodyElement.classList.remove('modal-open');
+
       });
     });
   });

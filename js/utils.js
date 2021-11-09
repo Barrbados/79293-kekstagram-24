@@ -9,3 +9,5 @@ export const getRandomIntInclusive = (min, max) => {
 export const calcLengthString = (str, maxLength) => str.length <= maxLength;
 
 export const getRandomArrayElement = (array) => array[getRandomIntInclusive(0, array.length - 1)];
+
+

@@ -23,7 +23,9 @@ const DESCRIPTIONS = [
   'Это я вчера',
   'Очень красиво',
   'Лайкай меня',
-  'Как Бузова',
+  'Потрясающее фото',
+  'Это удивительно',
+
 ];
 
 //вам необходимо взять одно или два случайных предложения из представленных ниже:
@@ -46,10 +48,11 @@ const getComments = (id) => ({
     : getRandomArrayElement(MESSAGES),
 });
 
+
 const getPhoto = (id) => ({
   id,
   name: getRandomArrayElement(NAMES),
-  avatar: `img/avatar-${  getRandomIntInclusive (1, 6) }.svg`,
+  avatar: `photos/${(id)}.jpg`,
   comments:  Array.from({length: getRandomIntInclusive(1, 3)}, ( val, ind ) => getComments( ind + 1 )),
   likes: getRandomIntInclusive (15, 200),
   description: getRandomArrayElement(DESCRIPTIONS),
@@ -57,3 +60,5 @@ const getPhoto = (id) => ({
 
 export const getUserPhots = () => Array.from({length: 25}, ( val, ind ) => getPhoto( ind + 1 ));
 export const data = getUserPhots();
+//console.log('data', data)
+
