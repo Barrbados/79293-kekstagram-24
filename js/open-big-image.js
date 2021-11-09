@@ -1,5 +1,5 @@
 import {data} from './data.js';
-
+//оставить это
 export const openBigImage = () => {
   const socialСommentСount = document.querySelector('.social__comment-count');
   const commentsLoader = document.querySelector('.comments-loader');
@@ -19,8 +19,7 @@ export const openBigImage = () => {
       const img = bigPicture.querySelector('img');
       const likesСount = bigPicture.querySelector('.likes-count');
       const commentsСount = bigPicture.querySelector('.comments-count');
-      console.log('dataItem', dataItem);
-      //const socialPicture = bigPicture.querySelector('.social__picture');
+      const socialPicture = bigPicture.querySelector('.social__picture');
 
       // const dataItemComments = dataItem(comments).find((val) => `${val.id}` === targetId);
       //?????Список комментариев под фотографией: комментарии должны вставляться в блок .social__comments
@@ -32,7 +31,7 @@ export const openBigImage = () => {
       //         width="35" height="35">
       //     <p class="social__text">{{текст комментария}}</p>
       //  </li>
-      //const socialComments = bigPicture.querySelector('.social__comments');
+      const socialComments = bigPicture.querySelector('.social__comments');
 
       //Описание фотографии description вставьте строкой в блок .social__caption
       const socialCaption = bigPicture.querySelector('.social__caption');
@@ -40,10 +39,13 @@ export const openBigImage = () => {
       img.src = dataItem.avatar;
       likesСount.textContent = dataItem.likes;
       commentsСount.textContent = dataItem.comments.length;
-      //socialComments.value = dataItem.comments.length;
+      socialComments.value = dataItem.comments.length;
       socialCaption.textContent = dataItem.description;
+      socialPicture.src = dataItem.avatar;
+      // socialComments.src = dataItemComments.avatar;
 
 
+      console.log('dataItem', dataItem);
       bigPicture.classList.remove('hidden');
 
       socialСommentСount.classList.add('hidden');
